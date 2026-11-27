@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-slate-900;
+  }
+
+  ::selection {
+    @apply bg-brand-200 text-brand-900;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight text-slate-900;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply outline-none;
+  }
+
+  /* Subtle scrollbars keep dense admin panels tidy */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #d5dae6 transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: #d5dae6;
+    border-radius: 999px;
+  }
+}
+
+@layer components {
+  .surface {
+    @apply rounded-2xl border border-line bg-white shadow-card;
+  }
+
+  .surface-hover {
+    @apply transition duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lift;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-[13px] font-medium text-slate-700;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 transition focus:border-brand-400 focus:ring-4 focus:ring-brand-100;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2;
+  }
+
+  .kbd {
+    @apply rounded border border-line bg-slate-50 px-1.5 py-0.5 font-mono text-[10px] text-slate-500;
+  }
+}
+
+/* Animated waveform bars */
+.wave-bar {
+  transform-origin: center;
+  animation: wave 1s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: scaleY(0.25);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* Map texture */
+.map-grid {
+  background-image: radial-gradient(#e3e7f0 1px, transparent 1px);
+  background-size: 18px 18px;
+}
